@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cari Kos - KostKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <main class="konten">
+      <h2 class="judul">Cari Kos</h2>
+      <p class="sub">Tentukan lokasi, tipe, dan budget kamu.</p>
+
+      <section class="form-kartu">
+        <label class="label" for="lokasi">Kampus atau lokasi tujuan</label>
+        <div class="input-wrap">
+          <span>📍</span>
+          <input type="text" id="lokasi" value="Universitas Brawijaya">
+        </div>
+
+        <label class="label">Tipe kos</label>
+        <div class="baris-chip" id="tipe">
+          <button type="button" class="chip chip-aktif">Semua</button>
+          <button type="button" class="chip">Putri</button>
+          <button type="button" class="chip">Putra</button>
+          <button type="button" class="chip">Campur</button>
+        </div>
+
+        <label class="label">Harga per bulan</label>
+        <div class="baris-harga">
+          <input type="text" class="input-harga" value="Rp500.000">
+          <span>–</span>
+          <input type="text" class="input-harga" value="Rp1.000.000">
+        </div>
+
+        <label class="label">Fasilitas</label>
+        <div class="baris-chip" id="fasilitas">
+          <button type="button" class="chip chip-garis">Wifi</button>
+          <button type="button" class="chip chip-garis">AC</button>
+          <button type="button" class="chip chip-garis">Kamar mandi dalam</button>
+        </div>
+
+        <button type="button" class="tombol-kuning">🔍 Cari Kos</button>
+      </section>
+
+      <h3 class="judul-bagian">Kampus Populer</h3>
+      <div class="baris-chip" id="kampus">
+        <button type="button" class="chip">Universitas Brawijaya</button>
+        <button type="button" class="chip">Polinema</button>
+        <button type="button" class="chip">Universitas Negeri Malang</button>
+        <button type="button" class="chip">UIN Malang</button>
+      </div>
+
+      <h3 class="judul-bagian">Pencarian Terakhir</h3>
+      <div class="riwayat">
+        <span class="riwayat-ikon">🕒</span>
+        <div>
+          <strong>Universitas Brawijaya</strong>
+          <p>Rp500.000 - Rp1.500.000</p>
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="index.html">🏠</a>
+      <a href="cari.html" class="aktif">🔍</a>
+      <a href="akun.html">👤</a>
+    </nav>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

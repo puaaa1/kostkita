@@ -19,7 +19,6 @@ body {
   color: var(--navy);
 }
 
-/* lebar layar HP, ditengah kalau dibuka di laptop */
 .app {
   max-width: 440px;
   min-height: 100vh;
@@ -32,7 +31,6 @@ body {
   padding: 24px 28px 100px;
 }
 
-/* logo */
 .logo {
   display: flex;
   align-items: center;
@@ -55,7 +53,6 @@ body {
   font-weight: 600;
 }
 
-/* teks */
 h1 {
   font-size: 32px;
   line-height: 1.3;
@@ -74,7 +71,6 @@ h3 {
   margin-bottom: 12px;
 }
 
-/* kartu fitur */
 .kartu {
   display: flex;
   gap: 12px;
@@ -106,7 +102,6 @@ h3 {
   color: var(--abu);
 }
 
-/* navigasi bawah */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -129,4 +124,144 @@ h3 {
 
 .bottom-nav a.aktif {
   opacity: 1;
+}
+
+
+
+
+
+
+.judul {
+  font-size: 26px;
+  margin-top: 16px;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--abu);
+  margin-bottom: 20px;
+}
+
+.form-kartu {
+  background: white;
+  border: 1px solid var(--garis);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 18px 0 10px;
+}
+
+.form-kartu .label:first-child {
+  margin-top: 0;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #e4e9f2;
+  border: 1px solid #b8c0cf;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.input-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+  color: var(--navy);
+}
+
+.baris-chip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border: none;
+  background: var(--biru-muda);
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip-garis {
+  background: white;
+  border: 1px solid var(--navy);
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+.chip-aktif {
+  background: var(--navy);
+  color: white;
+}
+
+.baris-harga {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-harga {
+  width: 100%;
+  background: #e4e9f2;
+  border: 1px solid #b8c0cf;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  color: var(--navy);
+}
+
+.tombol-kuning {
+  width: 100%;
+  background: var(--kuning);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.judul-bagian {
+  font-size: 15px;
+  margin: 24px 0 12px;
+}
+
+.riwayat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.riwayat-ikon {
+  font-size: 22px;
+}
+
+.riwayat strong {
+  font-size: 14px;
+}
+
+.riwayat p {
+  font-size: 13px;
+  color: #8a93a3;
 }
