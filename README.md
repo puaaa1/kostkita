@@ -7,5 +7,5 @@ Kelompok: 1
 Anggota:
 1. Kindly Besthari Turnip (255150207111075)
 2. Aisyah Al-Hudri (255150207111080)
-3. 
-4. 
+3. Arkhan Zufar Rubiono (245150207111001)
+4. Muhammad Raziq Syuhada (245150200111019)
