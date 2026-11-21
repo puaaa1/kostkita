@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Pencarian - KostKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <main class="konten konten-hasil">
+      <div class="bar-cari">
+        <a href="cari.html" class="tombol-kembali">←</a>
+        <div class="kotak-cari">
+          <span>📍</span>
+          <strong>Universitas Brawijaya</strong>
+          <a href="cari.html" class="tombol-cari-kecil">🔍</a>
+        </div>
+      </div>
+
+      <button type="button" class="tombol-filter">⚙ Filter</button>
+
+      <div class="baris-info">
+        <span id="jumlah">24 kos dekat Universitas Brawijaya</span>
+        <select id="urutan">
+          <option value="jarak">Terdekat</option>
+          <option value="harga">Termurah</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+
+      <div id="daftar"></div>
+    </main>
+
+    <a href="bandingkan.html" class="tombol-bandingkan" id="tombolBandingkan">Bandingkan 0 kos</a>
+
+    <nav class="bottom-nav">
+      <a href="index.html">🏠</a>
+      <a href="cari.html" class="aktif">🔍</a>
+      <a href="akun.html">👤</a>
+    </nav>
+  </div>
+
+  <script src="js/hasil.js"></script>
+</body>
+</html>
