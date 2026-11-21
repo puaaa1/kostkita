@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Kos - KostKita</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lihat-kos.css">
+</head>
+<body>
+  <div class="app">
+    <main class="konten konten-detail">
+      <div class="hero" id="hero">
+        <a href="hasil.html" class="hero-kembali" onclick="event.stopPropagation()">←</a>
+        🖼️
+        <span class="hero-jumlah" id="jumlahFoto">1 / 6 foto</span>
+      </div>
+
+      <div class="isi-detail">
+        <span class="badge-verif">🛡 Terverifikasi</span>
+        <h1 id="nama">Kos</h1>
+        <p class="sub-detail" id="sub"></p>
+        <div class="harga-detail"><span id="harga"></span> <small>/bulan</small></div>
+        <div class="info-baris">
+          <span id="rating"></span>
+          <span class="sisa" id="sisa"></span>
+        </div>
+
+        <section class="kartu-isi">
+          <h3>Deskripsi</h3>
+          <p id="deskripsi"></p>
+        </section>
+
+        <section class="kartu-isi">
+          <h3>Fasilitas</h3>
+          <ul class="daftar-fasilitas" id="fasilitas"></ul>
+        </section>
+      </div>
+    </main>
+
+    <div class="bar-aksi">
+      <button type="button" class="tombol-hati" id="tombolHati">🤍</button>
+      <button type="button" class="tombol-chat" id="tombolChat">💬 Chat</button>
+      <a href="reservasi.html" class="tombol-booking" id="tombolBooking">Booking</a>
+    </div>
+  </div>
+
+  <script src="js/data-kos.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>
