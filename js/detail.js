@@ -1,4 +1,3 @@
-// detail.html?id=melati
 var id = new URLSearchParams(location.search).get('id');
 var kos = DATA_KOS[id] || DATA_KOS.melati;
 
@@ -17,7 +16,6 @@ document.getElementById('fasilitas').innerHTML = kos.fasilitas
 
 document.getElementById('tombolBooking').href = 'reservasi.html?id=' + kos.id;
 
-// Favorit (disimpan di localStorage)
 var tombolHati = document.getElementById('tombolHati');
 var favorit = [];
 try { favorit = JSON.parse(localStorage.getItem('favorit')) || []; } catch (e) {}
@@ -34,12 +32,10 @@ tombolHati.addEventListener('click', function () {
 });
 gambarHati();
 
-// Chat belum ada halamannya
 document.getElementById('tombolChat').addEventListener('click', function () {
   alert('Fitur chat belum tersedia di prototype ini.');
 });
 
-// Penghitung foto sederhana
 var foto = 1;
 document.getElementById('hero').addEventListener('click', function () {
   foto = foto % 6 + 1;

@@ -1,5 +1,3 @@
-/* Gaya khusus halaman detail.html dan bandingkan.html (Anggota 2).
-   Tambahkan di <head> setelah style.css. */
 :root{
   --lk-navy:#0B1F3F; --lk-sky:#DCE8FA; --lk-kuning:#FFC93C;
   --lk-garis:rgba(0,0,0,.15); --lk-redup:rgba(15,26,46,.65);
@@ -27,7 +25,6 @@
 .tombol-chat{flex:0 0 96px;border:1.5px solid var(--lk-navy);background:#fff;color:var(--lk-navy)}
 .tombol-booking{flex:1;border:0;background:var(--lk-kuning);color:var(--lk-navy)}
 
-/* Bandingkan */
 .konten-banding{padding:16px 20px 90px}
 .bar-judul{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .bar-judul h2{margin:0;font-size:20px}

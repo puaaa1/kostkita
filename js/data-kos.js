@@ -1,4 +1,3 @@
-// Data kos bersama (dipakai detail.js dan bandingkan.js)
 var DATA_KOS = {
   melati: {
     id: 'melati', nama: 'Kos Melati', tipe: 'Putri', jalan: 'Jl. Veteran',

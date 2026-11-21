@@ -1,4 +1,3 @@
-// bandingkan.html?ids=melati,cempaka   (maksimal 3)
 var param = new URLSearchParams(location.search).get('ids');
 var ids = (param ? param.split(',') : ['melati', 'cempaka'])
   .filter(function (i) { return DATA_KOS[i]; })
