@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar - KostKita</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/akun.css">
+</head>
+<body class="ak-body">
+  <div class="app ak-app">
+    <main class="ak-konten">
+      <div class="ak-lingkar" data-ikon="user"></div>
+
+      <h1 class="ak-judul">Buat akun KostKita</h1>
+      <p class="ak-sub">Daftar gratis untuk menyimpan favorit dan booking kos terverifikasi.</p>
+
+      <div class="ak-tab">
+        <a href="masuk.html">Masuk</a>
+        <a href="daftar.html" class="aktif" aria-current="page">Daftar</a>
+      </div>
+
+      <form id="formDaftar" novalidate>
+        <label class="ak-label" for="nama">Nama Lengkap</label>
+        <input class="ak-input" type="text" id="nama" autocomplete="name"
+               placeholder="Sesuai KTP / KTM" aria-describedby="namaGalat">
+        <p class="ak-galat" id="namaGalat" role="alert"></p>
+
+        <label class="ak-label" for="email">Email</label>
+        <input class="ak-input" type="email" id="email" autocomplete="email"
+               placeholder="contoh: nama@email.com" aria-describedby="emailGalat">
+        <p class="ak-galat" id="emailGalat" role="alert"></p>
+
+        <label class="ak-label" for="hp">No. HP</label>
+        <input class="ak-input" type="tel" id="hp" autocomplete="tel" inputmode="tel"
+               placeholder="08xx xxxx xxxx" aria-describedby="hpGalat">
+        <p class="ak-galat" id="hpGalat" role="alert"></p>
+
+        <label class="ak-label" for="sandi">Password</label>
+        <div class="ak-isian">
+          <input class="ak-input" type="password" id="sandi" autocomplete="new-password"
+                 placeholder="Minimal 8 karakter" aria-describedby="sandiGalat">
+          <button type="button" class="ak-mata" id="mata" aria-label="Lihat password">Lihat</button>
+        </div>
+        <p class="ak-galat" id="sandiGalat" role="alert"></p>
+
+        <p class="ak-syarat">Dengan mendaftar, kamu menyetujui <a href="#" id="tautSyarat">Syarat &amp; Ketentuan</a> dan <a href="#" id="tautPrivasi">Kebijakan Privasi</a> KostKita.</p>
+
+        <button type="submit" class="ak-tombol" id="tombolDaftar">Daftar</button>
+      </form>
+
+      <a href="index.html" class="ak-lewati">Lanjut tanpa mendaftar</a>
+    </main>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/daftar.js"></script>
+</body>
+</html>

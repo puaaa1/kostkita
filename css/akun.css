@@ -1,0 +1,228 @@
+/* Gaya khusus masuk.html, daftar.html, akun.html (Anggota 4).
+   Pasang di <head> setelah style.css. Semua kelas diawali "ak-" supaya tidak bentrok
+   dengan CSS anggota lain. Warna & font mengikuti style.css dan desain Figma. */
+
+:root {
+  --ak-merah: #c0120c;
+  --ak-input: #ffffff;
+  --ak-garis: #d5d9e2;
+  --ak-tab: #e4e9f2;
+}
+
+.ak-body { margin: 0; background: #dfe3ea; font-family: "Poppins", Arial, sans-serif; color: var(--navy); }
+
+.ak-app {
+  max-width: 440px; min-height: 100vh; margin: 0 auto;
+  background: var(--latar); position: relative;
+}
+
+.ak-konten { padding: 60px 30px 48px; }
+.ak-konten.ada-nav { padding-bottom: 110px; }
+
+/* ===== Masuk & Daftar ===== */
+
+.ak-lingkar {
+  width: 50px; height: 50px; border-radius: 50%; background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); margin-bottom: 18px;
+}
+.ak-lingkar .ikon { width: 24px; height: 24px; }
+
+.ak-judul { font-size: 30px; line-height: 1.3; font-weight: 700; margin: 0 0 10px; color: var(--navy); }
+.ak-sub { font-size: 14px; line-height: 1.6; color: var(--abu); margin-bottom: 22px; }
+
+.ak-tab {
+  display: flex; gap: 4px; padding: 4px; margin-bottom: 22px;
+  background: var(--ak-tab); border-radius: 16px;
+}
+.ak-tab a {
+  flex: 1; text-align: center; text-decoration: none; padding: 12px 0;
+  font-size: 14px; color: var(--abu); border-radius: 12px;
+}
+.ak-tab a.aktif { background: #fff; color: var(--navy); font-weight: 500; }
+
+.ak-label { display: block; font-size: 14px; color: var(--abu); margin: 16px 0 8px; }
+.ak-label:first-of-type { margin-top: 0; }
+
+.ak-isian { position: relative; }
+.ak-input {
+  display: block; width: 100%; height: 50px; padding: 0 16px;
+  background: var(--ak-input); border: 1px solid var(--ak-garis); border-radius: 14px;
+  font-family: inherit; font-size: 14px; color: var(--navy); outline: none;
+}
+.ak-input::placeholder { color: #8a93a6; }
+.ak-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15, 31, 61, .12); }
+.ak-input.salah { border-color: var(--ak-merah); background: #fff6f5; }
+.ak-isian .ak-input { padding-right: 84px; }
+
+.ak-mata {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  background: none; border: 0; padding: 8px; cursor: pointer;
+  font-family: inherit; font-size: 12px; font-weight: 600; color: var(--navy);
+}
+
+.ak-galat { min-height: 0; margin-top: 6px; font-size: 12px; line-height: 1.4; color: var(--ak-merah); }
+.ak-galat:empty { display: none; }
+
+.ak-lupa {
+  display: block; margin: 12px 0 0 auto; width: max-content;
+  background: none; border: 0; padding: 4px 0; cursor: pointer;
+  font-family: inherit; font-size: 13px; font-weight: 600; color: var(--abu); text-decoration: none;
+}
+
+.ak-tombol {
+  display: block; width: 100%; padding: 14px; margin-top: 22px;
+  background: var(--kuning); border: 0; border-radius: 14px;
+  font-family: inherit; font-size: 15px; font-weight: 600; color: var(--navy);
+  text-align: center; text-decoration: none; cursor: pointer;
+}
+.ak-tombol:disabled { opacity: .6; cursor: default; }
+.ak-tombol-garis {
+  background: transparent; border: 1.5px solid var(--navy); margin-top: 10px;
+}
+
+.ak-pemisah { border: 0; border-top: 1px solid var(--ak-garis); margin: 28px 0 18px; }
+.ak-reset h4 { font-size: 14px; margin-bottom: 6px; }
+.ak-reset p { font-size: 14px; line-height: 1.6; color: var(--abu); }
+.ak-tombol-kecil {
+  display: inline-block; margin-top: 12px; padding: 10px 18px; background: #fff;
+  border: 1px solid var(--navy); border-radius: 12px; cursor: pointer;
+  font-family: inherit; font-size: 14px; font-weight: 600; color: var(--navy);
+}
+
+.ak-syarat { font-size: 14px; line-height: 1.6; color: var(--abu); margin-top: 22px; }
+.ak-syarat a { color: var(--navy); font-weight: 600; }
+
+.ak-lewati { display: block; text-align: center; margin-top: 22px; font-size: 13px; color: var(--abu); }
+
+/* ===== Akun Saya ===== */
+
+.ak-halaman { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+
+.ak-kartu {
+  background: #fff; border: 1px solid var(--ak-garis); border-radius: 20px;
+  padding: 16px 20px; margin-bottom: 12px;
+}
+
+.ak-profil { display: flex; align-items: center; gap: 16px; }
+.ak-avatar {
+  width: 60px; height: 60px; flex: none; border-radius: 50%;
+  background: var(--biru-muda); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.ak-avatar .ikon { width: 26px; height: 26px; }
+.ak-profil strong { display: block; font-size: 16px; overflow-wrap: anywhere; }
+.ak-profil span { display: block; font-size: 13px; color: var(--abu); overflow-wrap: anywhere; }
+
+.ak-bagian { font-size: 15px; font-weight: 600; margin: 22px 0 10px; }
+
+.ak-booking { position: relative; }
+.ak-booking strong { display: block; font-size: 16px; font-weight: 500; padding-right: 110px; }
+.ak-booking p { font-size: 13px; line-height: 1.5; color: var(--abu); margin-top: 2px; }
+.ak-lencana {
+  position: absolute; top: 12px; right: 12px; padding: 4px 12px;
+  border-radius: 999px; font-size: 12px; background: var(--biru-muda); color: var(--navy);
+}
+.ak-lencana.selesai { background: #e4e9f2; color: var(--abu); }
+.ak-tombol-ulas {
+  margin-top: 10px; padding: 8px 18px; background: #fff; border: 1.5px solid var(--abu);
+  border-radius: 12px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 600; color: var(--navy);
+}
+.ak-ulasan-kecil { margin-top: 8px; font-size: 13px; color: var(--navy); }
+.ak-kosong { font-size: 13px; line-height: 1.6; color: var(--abu); text-align: center; padding: 6px 0; }
+.ak-kosong a { color: var(--navy); font-weight: 600; }
+
+.ak-menu { padding: 0; overflow: hidden; }
+.ak-menu button {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  padding: 16px 20px; background: none; border: 0; border-bottom: 1px solid var(--ak-garis);
+  font-family: inherit; font-size: 14px; font-weight: 600; color: var(--navy); text-align: left; cursor: pointer;
+}
+.ak-menu button:last-child { border-bottom: 0; }
+.ak-menu .ikon { width: 20px; height: 20px; }
+
+.ak-keluar {
+  display: block; width: 100%; margin-top: 20px; padding: 14px; background: #fff;
+  border: 1.5px solid var(--ak-merah); border-radius: 14px; cursor: pointer;
+  font-family: inherit; font-size: 15px; font-weight: 600; color: var(--ak-merah);
+}
+
+/* Belum masuk */
+.ak-tamu { text-align: center; padding: 28px 20px; }
+.ak-tamu .ak-avatar { margin: 0 auto 14px; }
+.ak-tamu strong { display: block; font-size: 17px; margin-bottom: 6px; }
+.ak-tamu p { font-size: 14px; line-height: 1.6; color: var(--abu); }
+
+/* ===== Popup tengah & lembar bawah ===== */
+
+.ak-latar {
+  position: fixed; inset: 0; z-index: 999; background: rgba(15, 31, 61, .5);
+  display: flex; align-items: flex-end; justify-content: center;
+  animation: akMuncul .15s ease;
+}
+.ak-latar.tengah { align-items: center; padding: 24px; }
+
+.ak-popup {
+  background: #fff; border-radius: 24px; padding: 28px 24px 22px;
+  width: 100%; max-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(15, 31, 61, .25);
+}
+.ak-popup-ikon {
+  width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%;
+  background: var(--biru-muda); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.ak-popup-ikon .ikon { width: 26px; height: 26px; }
+.ak-popup-judul { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.ak-popup-teks { font-size: 14px; line-height: 1.5; color: var(--abu); margin-bottom: 4px; }
+.ak-popup .ak-tombol { margin-top: 18px; }
+
+.ak-sheet {
+  background: #fff; width: 100%; max-width: 440px; max-height: 88vh; overflow-y: auto;
+  border-radius: 24px 24px 0 0; padding: 20px 24px 28px; animation: akNaik .2s ease;
+}
+.ak-sheet-kepala { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.ak-sheet-kepala h3 { font-size: 18px; margin: 0; }
+.ak-tutup {
+  width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--latar);
+  font-size: 22px; line-height: 1; color: var(--navy); cursor: pointer;
+}
+.ak-sheet-isi p { font-size: 14px; line-height: 1.6; color: var(--abu); }
+.ak-sheet-isi .ak-label { margin-top: 14px; }
+.ak-sheet-isi .ak-label:first-child { margin-top: 0; }
+
+.ak-baris-kos {
+  display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ak-garis);
+}
+.ak-baris-kos:last-child { border-bottom: 0; }
+.ak-baris-kos a { flex: 1; text-decoration: none; color: var(--navy); }
+.ak-baris-kos strong { display: block; font-size: 14px; }
+.ak-baris-kos span { font-size: 12px; color: var(--abu); }
+.ak-baris-kos button { background: none; border: 0; cursor: pointer; color: var(--ak-merah); padding: 8px; }
+.ak-baris-kos button .ikon { fill: var(--ak-merah); }
+
+.ak-faq { border-bottom: 1px solid var(--ak-garis); }
+.ak-faq summary { padding: 14px 0; font-size: 14px; font-weight: 600; cursor: pointer; }
+.ak-faq p { padding-bottom: 14px; }
+
+.ak-bintang { display: flex; gap: 6px; margin: 6px 0 4px; }
+.ak-bintang button { background: none; border: 0; padding: 2px; cursor: pointer; }
+.ak-bintang .ikon { width: 34px; height: 34px; }
+.ak-bintang .ikon-star { fill: none; stroke: #b8c0cf; }
+.ak-bintang button.on .ikon-star { fill: var(--kuning); stroke: var(--kuning); }
+.ak-area {
+  width: 100%; min-height: 96px; padding: 12px 14px; resize: vertical;
+  background: #fff; border: 1px solid var(--ak-garis); border-radius: 14px;
+  font-family: inherit; font-size: 14px; color: var(--navy); outline: none;
+}
+.ak-area:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15, 31, 61, .12); }
+.ak-ulasan-item { padding: 12px 0; border-bottom: 1px solid var(--ak-garis); }
+.ak-ulasan-item:last-child { border-bottom: 0; }
+.ak-ulasan-item strong { font-size: 14px; }
+.ak-ulasan-item .ikon-star { width: 14px; height: 14px; }
+
+@keyframes akMuncul { from { opacity: 0; } to { opacity: 1; } }
+@keyframes akNaik { from { transform: translateY(40px); } to { transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-latar, .ak-sheet { animation: none; }
+}
