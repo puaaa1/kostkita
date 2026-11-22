@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk - KostKita</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/akun.css">
+</head>
+<body class="ak-body">
+  <div class="app ak-app">
+    <main class="ak-konten">
+      <div class="ak-lingkar" data-ikon="user"></div>
+
+      <h1 class="ak-judul">Selamat Datang Kembali</h1>
+      <p class="ak-sub">Masuk untuk menyimpan favorit dan memantau booking-mu.</p>
+
+      <div class="ak-tab">
+        <a href="masuk.html" class="aktif" aria-current="page">Masuk</a>
+        <a href="daftar.html">Daftar</a>
+      </div>
+
+      <form id="formMasuk" novalidate>
+        <label class="ak-label" for="idf">Email atau No. HP</label>
+        <input class="ak-input" type="text" id="idf" autocomplete="username" inputmode="email"
+               placeholder="contoh: nama@email.com atau 08xx" aria-describedby="idfGalat">
+        <p class="ak-galat" id="idfGalat" role="alert"></p>
+
+        <label class="ak-label" for="sandi">Password</label>
+        <div class="ak-isian">
+          <input class="ak-input" type="password" id="sandi" autocomplete="current-password"
+                 placeholder="Minimal 8 karakter" aria-describedby="sandiGalat">
+          <button type="button" class="ak-mata" id="mata" aria-label="Lihat password">Lihat</button>
+        </div>
+        <p class="ak-galat" id="sandiGalat" role="alert"></p>
+
+        <a href="#reset" class="ak-lupa" id="tautLupa">Lupa password?</a>
+
+        <button type="submit" class="ak-tombol" id="tombolMasuk">Masuk</button>
+      </form>
+
+      <hr class="ak-pemisah">
+
+      <section class="ak-reset" id="reset">
+        <h4>Lupa password?</h4>
+        <p>Masukkan email atau No. HP di atas, lalu kami kirim tautan atau kode untuk mengatur ulang password-mu.</p>
+        <button type="button" class="ak-tombol-kecil" id="kirimReset">Kirim tautan reset</button>
+      </section>
+
+      <a href="index.html" class="ak-lewati">Lanjut tanpa masuk</a>
+    </main>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/masuk.js"></script>
+</body>
+</html>
