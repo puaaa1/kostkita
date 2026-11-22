@@ -1,0 +1,162 @@
+/* Gaya khusus halaman reservasi.html, pembayaran.html, konfirmasi.html (Anggota 3).
+   Pasang di <head> setelah style.css. Semua kelas diawali "bk-" supaya tidak bentrok
+   dengan CSS anggota lain. Warna mengikuti palet desain (DESIGN UI MOBILE). */
+
+/* Font Poppins disertakan di folder fonts/ supaya tetap tampil walau offline */
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap;
+  src: local("Poppins Regular"), local("Poppins-Regular"), url("../fonts/Poppins-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-style: normal; font-display: swap;
+  src: local("Poppins Medium"), local("Poppins-Medium"), url("../fonts/Poppins-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap;
+  src: local("Poppins Bold"), local("Poppins-Bold"), url("../fonts/Poppins-Bold.ttf") format("truetype"); }
+
+:root {
+  --bk-navy: #0B1F3F;
+  --bk-latar: #F3F4F7;
+  --bk-biru: #DCE8FA;
+  --bk-kuning: #FFC93C;
+  --bk-teks: #0F1A2E;
+  --bk-redup: #4B5362;
+  --bk-abu: #6B7A90;
+  --bk-garis: #E9EDF5;
+}
+
+/* ===== Tampilan seperti layar HP =====
+   Kolom selebar HP (maks. 440px) di tengah layar, latar abu di kiri-kanan.
+   Ditulis sendiri di sini supaya tetap rapi walau style.css tidak termuat. */
+.bk-body { margin: 0; min-height: 100vh; background: #DFE3EA; }
+.bk-body *, .bk-body *::before, .bk-body *::after { box-sizing: border-box; }
+.bk-app { width: 100%; max-width: 440px; min-height: 100vh; margin: 0 auto; position: relative;
+  background: var(--bk-latar); color: var(--bk-teks); display: flex; flex-direction: column; }
+.bk-app > main { flex: 1; }
+.bk-app h1, .bk-app h2, .bk-app h3, .bk-app h4, .bk-app p, .bk-app ol { margin: 0; padding: 0; }
+
+.bk-konten { padding: 66px clamp(20px, 10vw, 44px) 28px; }
+.bk-konten-konfirmasi { padding-top: 68px; }
+.bk-app, .bk-app button, .bk-app input { font-family: "Poppins", Arial, sans-serif; }
+
+/* ===== Judul + tombol kembali ===== */
+.bk-judul { display: flex; align-items: center; gap: 14px; margin: 0 0 24px -6px; }
+.bk-judul h2 { font-size: 22px; font-weight: 600; color: var(--bk-teks); }
+.bk-kembali { display: flex; color: var(--bk-teks); text-decoration: none; }
+.bk-kembali .ikon { width: 24px; height: 24px; vertical-align: 0; }
+
+/* ===== Indikator langkah ===== */
+.bk-langkah { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 18px; }
+.bk-langkah i { display: block; height: 3px; border-radius: 3px; background: var(--bk-garis); }
+.bk-langkah span { display: block; margin-top: 8px; font-size: 12px; font-weight: 500; color: var(--bk-navy); white-space: nowrap; }
+.bk-langkah .aktif i { background: var(--bk-navy); }
+
+/* ===== Kartu ===== */
+.bk-kartu { background: #fff; border: 1px solid var(--bk-garis); border-radius: 16px; padding: 16px; margin-bottom: 18px; }
+.bk-kartu h3 { font-size: 16px; font-weight: 600; color: var(--bk-teks); margin: 0 0 16px; }
+.bk-kartu h3.bk-rapat { margin-bottom: 4px; }
+
+/* Ringkas kos (halaman reservasi) */
+.bk-kos { display: flex; align-items: center; gap: 13px; padding: 9px 11px; margin-bottom: 17px; }
+.bk-foto { width: 64px; height: 64px; flex: none; border-radius: 10px; background: var(--bk-biru); }
+.bk-kos strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.bk-kos p { font-size: 13px; color: var(--bk-teks); }
+
+/* ===== Form ===== */
+.bk-label { display: block; font-size: 13px; font-weight: 500; color: var(--bk-teks); margin: 18px 0 6px; }
+.bk-kartu h3 + .bk-label { margin-top: 0; }
+.bk-input { display: block; width: 100%; height: 50px; background: #fff; border: 1px solid var(--bk-garis); border-radius: 12px;
+  padding: 0 15px; font-family: inherit; font-size: 16px; color: var(--bk-teks); outline: none; }
+.bk-input::placeholder { color: var(--bk-redup); opacity: .85; }
+.bk-input:focus { border-color: var(--bk-navy); }
+.bk-input.salah { border-color: #C0120C; background: #FFF6F5; }
+
+/* Kolom tanggal: tampil "dd/mm/yyyy" seperti desain, kalender bawaan dibuka saat diklik */
+.bk-tanggal { position: relative; }
+.bk-tanggal .bk-input[readonly] { cursor: pointer; }
+.bk-tanggal-asli { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; padding: 0; border: 0;
+  opacity: 0; pointer-events: none; }
+
+/* Pilihan durasi sewa */
+.bk-durasi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.bk-durasi button { height: 46px; background: #fff; border: 1px solid #E6E9F2; border-radius: 10px; font-family: inherit;
+  font-size: 13px; font-weight: 600; color: var(--bk-teks); cursor: pointer; }
+.bk-durasi button.pilih { background: var(--bk-biru); border: 1.5px solid var(--bk-navy); }
+
+/* ===== Baris ringkasan ===== */
+.bk-baris { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; padding: 5px 0; }
+.bk-baris span { flex: none; }
+.bk-baris strong { font-weight: 600; text-align: right; }
+.bk-garis-putus { border-top: 1px dashed #DCE0E8; margin: 12px 0 10px; }
+.bk-total { border-top: 1px solid var(--bk-garis); margin-top: 8px; padding-top: 12px; font-size: 16px; }
+.bk-total span, .bk-total strong { font-weight: 600; }
+.bk-catatan { font-size: 13px; line-height: 1.55; color: var(--bk-redup); margin-top: 10px; }
+
+/* ===== Metode pembayaran ===== */
+.bk-metode { display: flex; align-items: center; gap: 12px; padding: 11px 12px 11px 15px; margin-top: 10px; background: #fff;
+  border: 1px solid #E6E9F2; border-radius: 12px; cursor: pointer; }
+.bk-kartu h3 + div > .bk-metode:first-child { margin-top: -4px; }
+.bk-metode input { position: absolute; opacity: 0; pointer-events: none; }
+.bk-radio { width: 22px; height: 22px; flex: none; border: 2px solid var(--bk-redup); border-radius: 50%; position: relative; }
+.bk-metode strong { display: block; font-size: 15px; font-weight: 600; }
+.bk-metode small { display: block; font-size: 12px; letter-spacing: -.15px; color: var(--bk-redup); }
+.bk-metode.pilih { background: var(--bk-biru); border-color: var(--bk-redup); }
+.bk-metode.pilih .bk-radio::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--bk-redup); }
+.bk-metode:has(input:focus-visible) { outline: 2px solid var(--bk-navy); outline-offset: 2px; }
+
+.bk-jaminan { display: flex; gap: 10px; padding: 0 12px; font-size: 13px; line-height: 1.55; color: var(--bk-redup); }
+.bk-jaminan > span[data-ikon], .bk-info > span[data-ikon] { align-self: flex-start; flex: none; }
+.bk-jaminan .ikon { width: 16px; height: 16px; margin-top: 2px; }
+
+/* ===== Bar bawah ===== */
+.bk-bawah { position: sticky; bottom: 0; display: flex; align-items: center; gap: 24px; padding: 22px 30px 24px 21px;
+  background: #fff; border-top: 1px solid #D9D9D9; }
+.bk-bawah small { display: block; font-size: 12px; color: var(--bk-redup); }
+.bk-bawah b { display: block; font-size: 17px; font-weight: 700; white-space: nowrap; }
+.bk-tombol { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 52px;
+  border: 0; border-radius: 14px; background: var(--bk-kuning); color: var(--bk-teks); font-family: inherit;
+  font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.bk-bawah .bk-tombol { flex: 1; }
+.bk-bawah-penuh { padding-left: 30px; }
+.bk-bawah-penuh .bk-tombol { font-size: 18px; }
+
+/* ===== Konfirmasi ===== */
+.bk-sukses { text-align: center; margin: 44px 0 34px; }
+.bk-sukses-ikon { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; background: var(--bk-navy); color: #fff;
+  display: flex; align-items: center; justify-content: center; }
+.bk-sukses-ikon .ikon { width: 36px; height: 36px; }
+.bk-sukses-ikon .ikon path { stroke-width: 2; }
+.bk-sukses h1 { font-size: 26px; font-weight: 700; margin: 0 0 12px; line-height: 1.3; }
+.bk-sukses p { font-size: 15px; line-height: 1.55; color: var(--bk-abu); }
+
+.bk-bukti { padding: 14px 16px 12px; }
+.bk-bukti .bk-baris { font-size: 14px; padding: 3px 0; }
+.bk-bukti .bk-baris span { color: var(--bk-abu); font-size: 13.5px; }
+.bk-kode span { align-self: center; }
+.bk-kode strong { font-size: 17px; font-weight: 600; letter-spacing: .08em; }
+
+.bk-info { display: flex; gap: 12px; background: var(--bk-biru); border-radius: 14px; padding: 16px; margin-bottom: 18px;
+  font-size: 14px; line-height: 1.5; }
+.bk-info .ikon { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+
+.bk-tombol-garis, .bk-tombol-gelap { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  height: 51px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.bk-tombol-garis { background: #fff; border: 1.5px solid var(--bk-navy); color: var(--bk-navy); margin-bottom: 10px; }
+.bk-tombol-garis .ikon { width: 20px; height: 20px; vertical-align: 0; }
+.bk-tombol-gelap { background: var(--bk-navy); border: 0; color: #fff; }
+
+/* ===== Popup & loading ===== */
+.bk-popup-latar { position: fixed; inset: 0; background: rgba(15, 31, 61, .5); display: flex; align-items: center;
+  justify-content: center; padding: 24px; z-index: 999; animation: bkMuncul .15s ease; }
+.bk-popup { background: #fff; border-radius: 24px; padding: 28px 24px 22px; width: 100%; max-width: 320px; text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 31, 61, .25); }
+.bk-popup-ikon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%; background: var(--bk-biru);
+  color: var(--bk-navy); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
+.bk-popup h4 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.bk-popup p { font-size: 14px; color: var(--bk-redup); line-height: 1.5; margin-bottom: 20px; }
+.bk-putar { width: 44px; height: 44px; border: 4px solid var(--bk-biru); border-top-color: var(--bk-navy); border-radius: 50%;
+  margin: 0 auto 14px; animation: bkPutar .8s linear infinite; }
+@keyframes bkPutar { to { transform: rotate(360deg); } }
+@keyframes bkMuncul { from { opacity: 0; } to { opacity: 1; } }
+
+/* Layar sempit (HP kecil) */
+@media (max-width: 380px) {
+  .bk-langkah span { font-size: 10.5px; }
+  .bk-bawah { gap: 14px; padding-left: 16px; padding-right: 16px; }
+}
