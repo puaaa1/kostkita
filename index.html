@@ -10,7 +10,7 @@
   <div class="app">
     <main class="konten">
       <div class="logo">
-        <div class="logo-ikon">🏠</div>
+        <div class="logo-ikon" data-ikon="home"></div>
         <span class="logo-teks">KostKita</span>
       </div>
 
@@ -20,7 +20,7 @@
       <h3>Kenapa harus KostKita?</h3>
 
       <div class="kartu">
-        <div class="kartu-ikon">🖼️</div>
+        <div class="kartu-ikon" data-ikon="image"></div>
         <div>
           <strong>Foto terkini</strong>
           <p>Kamar sama seperti kondisi aslinya.</p>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="kartu">
-        <div class="kartu-ikon">🛡️</div>
+        <div class="kartu-ikon" data-ikon="shield"></div>
         <div>
           <strong>Pemilik terverifikasi</strong>
           <p>Identitas pemilik dicek dulu.</p>
@@ -36,7 +36,7 @@
       </div>
 
       <div class="kartu">
-        <div class="kartu-ikon">💬</div>
+        <div class="kartu-ikon" data-ikon="chat"></div>
         <div>
           <strong>Ulasan penghuni</strong>
           <p>Baca pengalaman penghuni sebelumnya.</p>
@@ -45,10 +45,12 @@
     </main>
 
     <nav class="bottom-nav">
-      <a href="index.html" class="aktif">🏠</a>
-      <a href="cari.html">🔍</a>
-      <a href="akun.html">👤</a>
+      <a href="index.html" class="aktif" data-ikon="home"></a>
+      <a href="cari.html" data-ikon="search"></a>
+      <a href="akun.html" data-ikon="user"></a>
     </nav>
   </div>
+
+  <script src="js/icons.js"></script>
 </body>
 </html>

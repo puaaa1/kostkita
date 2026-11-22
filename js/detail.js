@@ -6,12 +6,12 @@ document.getElementById('nama').textContent = kos.nama;
 document.getElementById('sub').textContent =
   'Kos ' + kos.tipe.toLowerCase() + ' · ' + kos.alamat + ' · ' + kos.jarak + ' ke kampus';
 document.getElementById('harga').textContent = rupiah(kos.harga);
-document.getElementById('rating').textContent = '⭐ ' + kos.rating + ' (' + kos.ulasan + ' ulasan)';
+document.getElementById('rating').innerHTML = ikon('star') + ' ' + kos.rating + ' (' + kos.ulasan + ' ulasan)';
 document.getElementById('sisa').textContent = 'Sisa ' + kos.sisa + ' kamar';
 document.getElementById('deskripsi').textContent = kos.deskripsi;
 
 document.getElementById('fasilitas').innerHTML = kos.fasilitas
-  .map(function (f) { return '<li>✔ ' + f + '</li>'; })
+  .map(function (f) { return '<li>' + ikon('check') + ' ' + f + '</li>'; })
   .join('');
 
 document.getElementById('tombolBooking').href = 'reservasi.html?id=' + kos.id;
@@ -22,7 +22,8 @@ try { favorit = JSON.parse(localStorage.getItem('favorit')) || []; } catch (e) {
 
 function gambarHati() {
   var aktif = favorit.indexOf(kos.id) > -1;
-  tombolHati.textContent = aktif ? '❤️' : '🤍';
+  tombolHati.innerHTML = ikon('heart');
+  tombolHati.classList.toggle('on', aktif);
 }
 tombolHati.addEventListener('click', function () {
   var i = favorit.indexOf(kos.id);

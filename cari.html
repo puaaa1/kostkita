@@ -15,7 +15,7 @@
       <section class="form-kartu">
         <label class="label" for="lokasi">Kampus atau lokasi tujuan</label>
         <div class="input-wrap">
-          <span>📍</span>
+          <span data-ikon="pin"></span>
           <input type="text" id="lokasi" placeholder="Masukkan kampus atau lokasi tujuan">
         </div>
 
@@ -46,7 +46,7 @@
           <button type="button" class="chip chip-garis">Dapur bersama</button>
         </div>
 
-        <a href="hasil.html" class="tombol-kuning">🔍 Cari Kos</a>
+        <a href="hasil.html" class="tombol-kuning"><span data-ikon="search"></span> Cari Kos</a>
       </section>
 
       <h3 class="judul-bagian">Kampus Populer</h3>
@@ -67,13 +67,14 @@
     </main>
 
     <nav class="bottom-nav">
-      <a href="index.html">🏠</a>
-      <a href="cari.html" class="aktif">🔍</a>
-      <a href="akun.html">👤</a>
+      <a href="index.html" data-ikon="home"></a>
+      <a href="cari.html" class="aktif" data-ikon="search"></a>
+      <a href="akun.html" data-ikon="user"></a>
     </nav>
   </div>
 
   <script src="js/data-kos.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/icons.js"></script>
 </body>
 </html>

@@ -12,15 +12,15 @@ var baris = [
   ['Pendingin', function (k) { return k.pendingin; }],
   ['Kamar mandi', function (k) { return k.kamarMandi; }],
   ['WiFi', function (k) { return k.wifi; }],
-  ['Rating', function (k) { return '⭐ ' + k.rating; }],
-  ['Verifikasi', function () { return '✔ Terverifikasi'; }]
+  ['Rating', function (k) { return ikon('star') + ' ' + k.rating; }],
+  ['Verifikasi', function () { return ikon('check') + ' Terverifikasi'; }]
 ];
 
 var kolom = 'repeat(' + daftar.length + ', 1fr)';
 
 document.getElementById('kepala').style.gridTemplateColumns = kolom;
 document.getElementById('kepala').innerHTML = daftar.map(function (k) {
-  return '<div class="kepala-kos"><div class="kepala-foto">🖼️</div><strong>' + k.nama + '</strong></div>';
+  return '<div class="kepala-kos"><div class="kepala-foto">' + ikon('image') + '</div><strong>' + k.nama + '</strong></div>';
 }).join('');
 
 document.getElementById('tabel').innerHTML = baris.map(function (b) {

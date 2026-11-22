@@ -11,13 +11,13 @@
   <div class="app">
     <main class="konten konten-detail">
       <div class="hero" id="hero">
-        <a href="hasil.html" class="hero-kembali" onclick="event.stopPropagation()">←</a>
-        🖼️
+        <a href="hasil.html" class="hero-kembali" onclick="event.stopPropagation()" data-ikon="back"></a>
+        <span class="hero-img" data-ikon="image"></span>
         <span class="hero-jumlah" id="jumlahFoto">1 / 6 foto</span>
       </div>
 
       <div class="isi-detail">
-        <span class="badge-verif">🛡 Terverifikasi</span>
+        <span class="badge-verif"><i data-ikon="shield"></i> Terverifikasi</span>
         <h1 id="nama">Kos</h1>
         <p class="sub-detail" id="sub"></p>
         <div class="harga-detail"><span id="harga"></span> <small>/bulan</small></div>
@@ -39,12 +39,13 @@
     </main>
 
     <div class="bar-aksi">
-      <button type="button" class="tombol-hati" id="tombolHati">🤍</button>
-      <button type="button" class="tombol-chat" id="tombolChat">💬 Chat</button>
+      <button type="button" class="tombol-hati" id="tombolHati"></button>
+      <button type="button" class="tombol-chat" id="tombolChat"><i data-ikon="chat"></i> Chat</button>
       <a href="reservasi.html" class="tombol-booking" id="tombolBooking">Booking</a>
     </div>
   </div>
 
+  <script src="js/icons.js"></script>
   <script src="js/data-kos.js"></script>
   <script src="js/detail.js"></script>
 </body>
