@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran DP - KostKita</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body class="bk-body">
+  <div class="app bk-app">
+    <main class="bk-konten">
+      <div class="bk-judul">
+        <a href="reservasi.html" class="bk-kembali" id="kembali" data-ikon="back"></a>
+        <h2>Pembayaran DP</h2>
+      </div>
+
+      <div class="bk-langkah">
+        <div class="aktif"><i></i><span>1. Data booking</span></div>
+        <div class="aktif"><i></i><span>2. Pembayaran</span></div>
+        <div><i></i><span>3. Konfirmasi</span></div>
+      </div>
+
+      <section class="bk-kartu">
+        <h3 class="bk-rapat">Ringkasan</h3>
+        <div id="ringkasan"></div>
+        <p class="bk-catatan">Sisa pembayaran dilunasi saat kamu tiba dan menempati kos.</p>
+      </section>
+
+      <section class="bk-kartu">
+        <h3>Metode pembayaran</h3>
+        <div id="metode"></div>
+      </section>
+
+      <p class="bk-jaminan">
+        <span data-ikon="shield"></span>
+        <span>Pembayaran diteruskan ke pemilik kos setelah kamu menerima konfirmasi booking.</span>
+      </p>
+    </main>
+
+    <div class="bk-bawah bk-bawah-penuh">
+      <button type="button" class="bk-tombol" id="bayar">Bayar</button>
+    </div>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data-kos.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/pembayaran.js"></script>
+</body>
+</html>

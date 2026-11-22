@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfirmasi Booking - KostKita</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body class="bk-body">
+  <div class="app bk-app">
+    <main class="bk-konten bk-konten-konfirmasi">
+      <div class="bk-langkah">
+        <div class="aktif"><i></i><span>1. Data booking</span></div>
+        <div class="aktif"><i></i><span>2. Pembayaran</span></div>
+        <div class="aktif"><i></i><span>3. Konfirmasi</span></div>
+      </div>
+
+      <div class="bk-sukses">
+        <div class="bk-sukses-ikon" data-ikon="check"></div>
+        <h1>Booking berhasil</h1>
+        <p>Kamarmu sudah dikunci. Simpan bukti ini dan tunjukkan ke pemilik saat tiba di Malang.</p>
+      </div>
+
+      <section class="bk-kartu bk-bukti">
+        <div class="bk-baris bk-kode"><span>Kode booking</span><strong id="kode">-</strong></div>
+        <div class="bk-garis-putus"></div>
+        <div id="detail"></div>
+      </section>
+
+      <div class="bk-info">
+        <span data-ikon="chat"></span>
+        <span>Pemilik kos akan menghubungi nomor HP-mu untuk mengatur kedatangan.</span>
+      </div>
+
+      <button type="button" class="bk-tombol-garis" id="unduh"><span data-ikon="download"></span> Unduh bukti</button>
+      <a href="akun.html" class="bk-tombol-gelap">Lihat riwayat booking</a>
+    </main>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data-kos.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/konfirmasi.js"></script>
+</body>
+</html>
