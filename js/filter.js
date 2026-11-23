@@ -32,10 +32,10 @@
     '.filter-latar.buka{display:block}' +
     '.filter-lembar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:440px;max-height:88vh;overflow-y:auto;background:#fff;border-radius:28px 28px 0 0;padding:22px 24px 24px;z-index:999;animation:filterNaik .2s ease}' +
     '.filter-kepala{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}' +
-    '.filter-kepala h3{font-size:18px;margin:0}' +
-    '.filter-tutup{border:none;background:#DCE8FA;color:#0f1f3d;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer}' +
+    '.filter-kepala h3{font-size:20px;margin:0}' +
+    '.filter-tutup{border:none;background:#eef2fb;color:#0f1f3d;width:36px;height:36px;border-radius:50%;font-size:14px;cursor:pointer}' +
     '.filter-aksi{display:flex;gap:10px;margin-top:24px}' +
-    '.filter-reset{flex:1;background:#fff;border:1px solid #0f1f3d;border-radius:12px;padding:14px;font-family:inherit;font-size:15px;font-weight:600;color:#0f1f3d;cursor:pointer}' +
+    '.filter-reset{flex:1;background:#fff;border:1.5px solid #e3e8f1;border-radius:16px;padding:15px;font-family:inherit;font-size:16px;font-weight:600;color:#0f1f3d;cursor:pointer}' +
     '.filter-terapkan{flex:2;margin-top:0}' +
     '.input-cari-hasil{flex:1;min-width:0;border:none;outline:none;background:transparent;font-family:inherit;font-size:14px;font-weight:500;color:#0f1f3d}' +
     '.popup-latar{position:fixed;inset:0;background:rgba(15,31,61,.5);display:flex;align-items:center;justify-content:center;padding:24px;z-index:1000;animation:filterNaik2 .15s ease}' +
@@ -130,6 +130,7 @@
     if (cari.min || cari.max) { n++; }
     n += (cari.fasilitas || []).length;
     tombolFilter.textContent = '⚙ Filter' + (n ? ' (' + n + ')' : '');
+    tombolFilter.classList.toggle('filter-aktif', n > 0);
   }
 
   function buka() {
@@ -187,6 +188,16 @@
   });
 
   perbaruiTombol();
+
+  var tombolBanding = document.getElementById('tombolBandingkan');
+  function aturTombolBanding() {
+    if (!tombolBanding) { return; }
+    tombolBanding.classList.toggle('sembunyi', /\b0 kos/.test(tombolBanding.textContent));
+  }
+  if (tombolBanding) {
+    aturTombolBanding();
+    new MutationObserver(aturTombolBanding).observe(tombolBanding, { childList: true, characterData: true, subtree: true });
+  }
 
   var kotakCari = document.querySelector('.kotak-cari');
   var teksLama = kotakCari && kotakCari.querySelector('strong');
