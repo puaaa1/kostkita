@@ -885,3 +885,251 @@ h1 {
   font-weight: 600;
   margin: 20px 0 10px;
 }
+
+/* ===========================================
+   ANIMASI (semua halaman)
+   Semua animasi mati otomatis kalau pengguna mengaktifkan
+   "kurangi gerakan" di perangkatnya (lihat bagian paling bawah).
+   =========================================== */
+
+/* ---------- 1. Pindah halaman: isi halaman bergeser halus ---------- */
+/* Jalan di Chrome dan Edge terbaru. Browser lain tetap pakai animasi masuk biasa. */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Navigasi bawah diam di tempat, hanya isi halaman yang bergeser */
+.bottom-nav {
+  view-transition-name: bottom-nav;
+}
+
+@keyframes halamanKeluar {
+  to { opacity: 0; translate: -18px 0; }
+}
+
+@keyframes halamanMasuk {
+  from { opacity: 0; translate: 18px 0; }
+}
+
+::view-transition-old(root) {
+  animation: 0.2s ease both halamanKeluar;
+}
+
+::view-transition-new(root) {
+  animation: 0.28s ease both halamanMasuk;
+}
+
+@supports not (view-transition-name: none) {
+  .konten {
+    animation: halamanMasuk 0.3s ease both;
+  }
+}
+
+/* ---------- 2. Tombol dan kartu terasa "ditekan" ---------- */
+
+button,
+.tombol-kuning,
+a[class*="tombol"],
+.bottom-nav a,
+.chip,
+.riwayat,
+.kc-isi {
+  transition: scale 0.12s ease, background-color 0.18s ease, border-color 0.18s ease,
+              color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:not(:disabled):active,
+.tombol-kuning:active,
+a[class*="tombol"]:active,
+.bottom-nav a:active,
+.chip:active,
+.riwayat:active {
+  scale: 0.96;
+}
+
+.kc-isi:active {
+  scale: 0.985;
+}
+
+@media (hover: hover) {
+  .konten-hasil .kc-kartu {
+    transition: translate 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .konten-hasil .kc-kartu:hover {
+    translate: 0 -2px;
+    box-shadow: 0 2px 4px rgba(15, 31, 61, 0.05), 0 14px 32px rgba(15, 31, 61, 0.10);
+  }
+}
+
+/* ---------- 3. Kartu muncul satu per satu ---------- */
+
+@keyframes kartuNaik {
+  from { opacity: 0; translate: 0 14px; }
+}
+
+.konten-hasil .kc-kartu,
+.logo ~ .kartu,
+.form-kartu {
+  animation: kartuNaik 0.4s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+
+.konten-hasil .kc-kartu:nth-child(2) { animation-delay: 0.06s; }
+.konten-hasil .kc-kartu:nth-child(3) { animation-delay: 0.12s; }
+.konten-hasil .kc-kartu:nth-child(4) { animation-delay: 0.18s; }
+.konten-hasil .kc-kartu:nth-child(5) { animation-delay: 0.24s; }
+.konten-hasil .kc-kartu:nth-child(n + 6) { animation-delay: 0.3s; }
+
+.logo ~ .kartu:nth-of-type(3) { animation-delay: 0.07s; }
+.logo ~ .kartu:nth-of-type(4) { animation-delay: 0.14s; }
+
+/* ---------- 4. Tombol Bandingkan naik dari bawah ---------- */
+
+@keyframes munculBawah {
+  from { opacity: 0; translate: 0 16px; }
+}
+
+.tombol-bandingkan:not(.sembunyi) {
+  animation: munculBawah 0.25s ease backwards;
+}
+
+/* ---------- 5. Popup membesar halus ---------- */
+
+@keyframes popupKartu {
+  from { opacity: 0; scale: 0.92; }
+}
+
+.popup-kartu,
+.bk-popup {
+  animation: popupKartu 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.15) backwards;
+}
+
+/* ---------- 6. Kotak centang ---------- */
+
+@keyframes centang {
+  from { scale: 0; }
+}
+
+.konten-hasil .kc-banding input {
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.konten-hasil .kc-banding input:checked::after {
+  animation: centang 0.18s ease;
+}
+
+/* ---------- Kurangi gerakan ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .konten,
+  .kc-kartu,
+  .kartu,
+  .form-kartu,
+  .tombol-bandingkan,
+  .popup-kartu,
+  .bk-popup,
+  .kc-banding input:checked::after {
+    animation: none !important;
+  }
+
+  button,
+  .tombol-kuning,
+  a[class*="tombol"],
+  .bottom-nav a,
+  .chip,
+  .riwayat,
+  .kc-isi,
+  .konten-hasil .kc-kartu {
+    transition: none !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ===========================================
+   BAR BAWAH HALAMAN DETAIL
+   Supaya barisan Chat dan Booking selalu menempel di dasar layar,
+   walaupun isi halamannya pendek. Hanya berlaku di halaman yang punya .bar-aksi.
+   =========================================== */
+
+.app:has(.bar-aksi) {
+  display: flex;
+  flex-direction: column;
+}
+
+.app:has(.bar-aksi) > main {
+  flex: 1;
+}
+
+.app:has(.bar-aksi) .konten-detail {
+  padding-bottom: 24px;
+}
+
+/* ===========================================
+   BARISAN BAWAH SERAGAM + JARAK ATAS AKUN SAYA
+   Semua barisan bawah (navigasi, bar Chat dan Booking, bar DP)
+   memakai satu tinggi yang sama. Mau ganti ukurannya? Ubah angka
+   --tinggi-bar di bawah ini saja.
+   =========================================== */
+
+:root {
+  --tinggi-bar: 80px;
+}
+
+/* navigasi bawah (Beranda, Cari, Hasil, Bandingkan, Akun) */
+.bottom-nav {
+  height: var(--tinggi-bar);
+  padding: 0;
+  align-items: center;
+}
+
+/* bar Chat dan Booking di halaman Detail */
+.app .bar-aksi {
+  height: var(--tinggi-bar);
+  padding: 0 16px;
+  align-items: center;
+}
+
+.app .bar-aksi button,
+.app .bar-aksi a {
+  height: 52px;
+  border-radius: 14px;
+}
+
+.app .bar-aksi .tombol-hati {
+  width: 52px;
+}
+
+/* bar DP di Reservasi, Pembayaran, dan Konfirmasi */
+.app .bk-bawah {
+  height: var(--tinggi-bar);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* tombol Bandingkan yang melayang tetap di atas navigasi */
+.tombol-bandingkan {
+  bottom: calc(var(--tinggi-bar) + 12px);
+}
+
+/* judul Akun Saya tidak terlalu turun dari atas */
+.ak-body .ak-konten:has(.ak-halaman) {
+  padding-top: 32px;
+}
+
+/* ===========================================
+   POPUP PESAN (pengganti alert bawaan browser)
+   =========================================== */
+.popup-latar{position:fixed;inset:0;background:rgba(15,31,61,.5);display:flex;align-items:center;justify-content:center;padding:24px;z-index:1000;animation:popupMuncul .15s ease}
+.popup-kartu{background:#fff;border-radius:24px;padding:28px 24px 22px;width:100%;max-width:320px;text-align:center;box-shadow:0 10px 30px rgba(15,31,61,.25)}
+.popup-ikon{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#DCE8FA;color:#0f1f3d;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700}
+.popup-ikon .ikon{width:26px;height:26px}
+.popup-judul{font-size:17px;font-weight:600;color:#0f1f3d;margin-bottom:6px}
+.popup-teks{font-size:14px;color:#4a5568;line-height:1.5;margin-bottom:20px}
+.popup-tombol{width:100%;background:#ffc93c;border:none;border-radius:12px;padding:13px;font-family:inherit;font-size:15px;font-weight:600;color:#0f1f3d;cursor:pointer}
+@keyframes popupMuncul{from{opacity:0}to{opacity:1}}

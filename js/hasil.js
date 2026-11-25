@@ -88,7 +88,7 @@
       cb.addEventListener('change', function () {
         var id = cb.getAttribute('data-id'), i = dipilih.indexOf(id);
         if (cb.checked) {
-          if (dipilih.length >= 3) { cb.checked = false; alert('Maksimal 3 kos untuk dibandingkan.'); return; }
+          if (dipilih.length >= 3) { cb.checked = false; tampilPopup('!', 'Maksimal 3 kos', 'Kamu bisa membandingkan paling banyak 3 kos sekaligus.'); return; }
           dipilih.push(id);
         } else if (i > -1) { dipilih.splice(i, 1); }
         ubahTombol();
@@ -101,7 +101,7 @@
     tombol.setAttribute('href', 'bandingkan.html?ids=' + dipilih.join(','));
   }
   tombol.addEventListener('click', function (e) {
-    if (dipilih.length < 2) { e.preventDefault(); alert('Pilih minimal 2 kos dengan mencentang "Bandingkan".'); }
+    if (dipilih.length < 2) { e.preventDefault(); tampilPopup('!', 'Pilih minimal 2 kos', 'Centang &quot;Bandingkan&quot; di minimal 2 kos dulu ya.'); }
   });
 
   if (elUrut) elUrut.addEventListener('change', tampil);

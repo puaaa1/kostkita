@@ -35,47 +35,9 @@
     var gaya = document.createElement('style');
     gaya.textContent =
       '.chip{cursor:pointer}' +
-      '.chip-garis.chip-aktif{background:#DCE8FA;color:#0B1F3F;border-color:#0B1F3F;font-weight:500}' +
-      '.popup-latar{position:fixed;inset:0;background:rgba(15,31,61,.5);display:flex;align-items:center;justify-content:center;padding:24px;z-index:999;animation:popupMuncul .15s ease}' +
-      '.popup-kartu{background:#fff;border-radius:24px;padding:28px 24px 22px;width:100%;max-width:320px;text-align:center;box-shadow:0 10px 30px rgba(15,31,61,.25)}' +
-      '.popup-ikon{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#DCE8FA;color:#0f1f3d;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}' +
-      '.popup-ikon .ikon{width:26px;height:26px}' +
-      '.popup-judul{font-size:17px;font-weight:600;color:#0f1f3d;margin-bottom:6px}' +
-      '.popup-teks{font-size:14px;color:#4a5568;line-height:1.5;margin-bottom:20px}' +
-      '.popup-tombol{width:100%;background:#ffc93c;border:none;border-radius:12px;padding:13px;font-family:inherit;font-size:15px;font-weight:600;color:#0f1f3d;cursor:pointer}' +
-      '@keyframes popupMuncul{from{opacity:0}to{opacity:1}}';
+      '.chip-garis.chip-aktif{background:#DCE8FA;color:#0B1F3F;border-color:#0B1F3F;font-weight:500}';
     document.head.appendChild(gaya);
   });
-
-  function popup(ikon, judul, pesan, fokus) {
-    var latar = document.createElement('div');
-    latar.className = 'popup-latar';
-    latar.innerHTML =
-      '<div class="popup-kartu">' +
-        '<div class="popup-ikon">' + ikon + '</div>' +
-        '<div class="popup-judul">' + judul + '</div>' +
-        '<p class="popup-teks">' + pesan + '</p>' +
-        '<button type="button" class="popup-tombol">Oke</button>' +
-      '</div>';
-    document.body.appendChild(latar);
-
-    function tutup() {
-      document.removeEventListener('keydown', tekanTombol);
-      latar.remove();
-      if (fokus) { fokus.focus(); }
-    }
-
-    function tekanTombol(e) {
-      if (e.key === 'Escape' || e.key === 'Enter') { tutup(); }
-    }
-
-    document.addEventListener('keydown', tekanTombol);
-    latar.querySelector('.popup-tombol').addEventListener('click', tutup);
-    latar.addEventListener('click', function (e) {
-      if (e.target === latar) { tutup(); }
-    });
-    latar.querySelector('.popup-tombol').focus();
-  }
 
   jalankan(function () {
     var chipTipe = document.querySelectorAll('#tipe .chip');
@@ -163,7 +125,7 @@
     document.querySelector('.tombol-kuning').addEventListener('click', function (e) {
       if (!lokasi.value.trim()) {
         e.preventDefault();
-        popup('<span data-ikon="pin"></span>', 'Lokasi belum diisi', 'Isi kampus atau lokasi tujuan dulu ya.', lokasi);
+        tampilPopup('<span data-ikon="pin"></span>', 'Lokasi belum diisi', 'Isi kampus atau lokasi tujuan dulu ya.', lokasi);
         return;
       }
 
@@ -171,7 +133,7 @@
       var max = angka(hargaMax.value);
       if (!min || !max) {
         e.preventDefault();
-        popup('Rp', 'Harga belum diisi', 'Isi harga minimum dan maksimum dulu ya.', min ? hargaMax : hargaMin);
+        tampilPopup('Rp', 'Harga belum diisi', 'Isi harga minimum dan maksimum dulu ya.', min ? hargaMax : hargaMin);
         return;
       }
 

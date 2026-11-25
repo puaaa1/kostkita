@@ -40,6 +40,7 @@ function ikon(nama) {
     /* menu bawah: ikon aktif terisi seperti di Figma */
     '.aktif .ikon-home path{fill:currentColor}' +
     '.aktif .ikon-search .lingkar{fill:currentColor}' +
+    '.aktif .ikon-user path:last-child{fill:currentColor}' +
     /* ukuran & warna ikon di tiap bagian halaman */
     '.logo-ikon{color:#fff}.logo-ikon .ikon{width:26px;height:26px;vertical-align:0}' +
     '.kartu-ikon{color:#0B1F3F}.kartu-ikon .ikon{width:22px;height:22px;vertical-align:0}' +

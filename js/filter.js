@@ -38,13 +38,6 @@
     '.filter-reset{flex:1;background:#fff;border:1.5px solid #e3e8f1;border-radius:16px;padding:15px;font-family:inherit;font-size:16px;font-weight:600;color:#0f1f3d;cursor:pointer}' +
     '.filter-terapkan{flex:2;margin-top:0}' +
     '.input-cari-hasil{flex:1;min-width:0;border:none;outline:none;background:transparent;font-family:inherit;font-size:14px;font-weight:500;color:#0f1f3d}' +
-    '.popup-latar{position:fixed;inset:0;background:rgba(15,31,61,.5);display:flex;align-items:center;justify-content:center;padding:24px;z-index:1000;animation:filterNaik2 .15s ease}' +
-    '.popup-kartu{background:#fff;border-radius:24px;padding:28px 24px 22px;width:100%;max-width:320px;text-align:center;box-shadow:0 10px 30px rgba(15,31,61,.25)}' +
-    '.popup-ikon{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#DCE8FA;color:#0f1f3d;display:flex;align-items:center;justify-content:center}' +
-    '.popup-ikon .ikon{width:26px;height:26px}' +
-    '.popup-judul{font-size:17px;font-weight:600;color:#0f1f3d;margin-bottom:6px}' +
-    '.popup-teks{font-size:14px;color:#4a5568;line-height:1.5;margin-bottom:20px}' +
-    '.popup-tombol{width:100%;background:#ffc93c;border:none;border-radius:12px;padding:13px;font-family:inherit;font-size:15px;font-weight:600;color:#0f1f3d;cursor:pointer}' +
     '@keyframes filterNaik2{from{opacity:0}to{opacity:1}}' +
     '@keyframes filterNaik{from{transform:translate(-50%,40px);opacity:0}to{transform:translate(-50%,0);opacity:1}}';
   document.head.appendChild(gaya);
@@ -203,32 +196,6 @@
   var teksLama = kotakCari && kotakCari.querySelector('strong');
   var tombolCari = kotakCari && kotakCari.querySelector('.tombol-cari-kecil');
 
-  function popupLokasi() {
-    var p = document.createElement('div');
-    p.className = 'popup-latar';
-    p.innerHTML =
-      '<div class="popup-kartu">' +
-        '<div class="popup-ikon"><span data-ikon="pin"></span></div>' +
-        '<div class="popup-judul">Lokasi belum diisi</div>' +
-        '<p class="popup-teks">Isi kampus atau lokasi tujuan dulu ya.</p>' +
-        '<button type="button" class="popup-tombol">Oke</button>' +
-      '</div>';
-    document.body.appendChild(p);
-    function tutup() {
-      document.removeEventListener('keydown', tekan);
-      p.remove();
-      var i = document.getElementById('cariHasil');
-      if (i) { i.focus(); }
-    }
-    function tekan(e) {
-      if (e.key === 'Escape' || e.key === 'Enter') { tutup(); }
-    }
-    document.addEventListener('keydown', tekan);
-    p.querySelector('.popup-tombol').addEventListener('click', tutup);
-    p.addEventListener('click', function (e) { if (e.target === p) { tutup(); } });
-    p.querySelector('.popup-tombol').focus();
-  }
-
   if (kotakCari && teksLama) {
     var input = document.createElement('input');
     input.type = 'text';
@@ -253,7 +220,7 @@
     function cariLagi() {
       var teks = input.value.trim();
       if (!teks) {
-        popupLokasi();
+        tampilPopup('<span data-ikon="pin"></span>', 'Lokasi belum diisi', 'Isi kampus atau lokasi tujuan dulu ya.', document.getElementById('cariHasil'));
         return;
       }
       var cari = baca();

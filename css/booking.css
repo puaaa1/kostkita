@@ -31,8 +31,8 @@
 .bk-app > main { flex: 1; }
 .bk-app h1, .bk-app h2, .bk-app h3, .bk-app h4, .bk-app p, .bk-app ol { margin: 0; padding: 0; }
 
-.bk-konten { padding: 66px clamp(20px, 10vw, 44px) 28px; }
-.bk-konten-konfirmasi { padding-top: 68px; }
+.bk-konten { padding: 32px clamp(20px, 10vw, 44px) 28px; }
+.bk-konten-konfirmasi { padding-top: 32px; }
 .bk-app, .bk-app button, .bk-app input { font-family: "Poppins", Arial, sans-serif; }
 
 /* ===== Judul + tombol kembali ===== */

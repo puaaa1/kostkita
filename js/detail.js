@@ -34,7 +34,7 @@ tombolHati.addEventListener('click', function () {
 gambarHati();
 
 document.getElementById('tombolChat').addEventListener('click', function () {
-  alert('Fitur chat belum tersedia di prototype ini.');
+  tampilPopup(ikon('chat'), 'Chat belum tersedia', 'Fitur chat belum tersedia di prototype ini.');
 });
 
 var foto = 1;

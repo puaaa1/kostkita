@@ -226,3 +226,32 @@
 @media (prefers-reduced-motion: reduce) {
   .ak-latar, .ak-sheet { animation: none; }
 }
+
+/* ---------- Animasi halaman Akun Saya ---------- */
+/* Kecepatan disamakan dengan halaman lain (style.css) */
+
+/* Baris menu: tidak mengecil, cukup berubah warna latar saat ditekan */
+.ak-menu button {
+  transition: background-color 0.18s ease;
+}
+
+.ak-menu button:not(:disabled):active {
+  scale: 1;
+  background-color: #eef2fb;
+}
+
+/* Kartu muncul satu per satu: 0.4s, jeda 0.06s per kartu (sama seperti Hasil) */
+.ak-konten.ada-nav .ak-kartu {
+  animation: kartuNaik 0.4s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+
+.ak-konten.ada-nav .ak-kartu ~ .ak-kartu { animation-delay: 0.06s; }
+.ak-konten.ada-nav .ak-kartu ~ .ak-kartu ~ .ak-kartu { animation-delay: 0.12s; }
+.ak-konten.ada-nav .ak-kartu ~ .ak-kartu ~ .ak-kartu ~ .ak-kartu { animation-delay: 0.18s; }
+.ak-konten.ada-nav .ak-kartu ~ .ak-kartu ~ .ak-kartu ~ .ak-kartu ~ .ak-kartu { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-konten.ada-nav .ak-kartu {
+    animation: none !important;
+  }
+}
