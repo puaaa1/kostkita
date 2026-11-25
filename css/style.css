@@ -970,8 +970,7 @@ a[class*="tombol"]:active,
 }
 
 .konten-hasil .kc-kartu,
-.logo ~ .kartu,
-.form-kartu {
+.konten-bertahap > * {
   animation: kartuNaik 0.4s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
 }
 
@@ -981,8 +980,11 @@ a[class*="tombol"]:active,
 .konten-hasil .kc-kartu:nth-child(5) { animation-delay: 0.24s; }
 .konten-hasil .kc-kartu:nth-child(n + 6) { animation-delay: 0.3s; }
 
-.logo ~ .kartu:nth-of-type(3) { animation-delay: 0.07s; }
-.logo ~ .kartu:nth-of-type(4) { animation-delay: 0.14s; }
+.konten-bertahap > :nth-child(2) { animation-delay: 0.06s; }
+.konten-bertahap > :nth-child(3) { animation-delay: 0.12s; }
+.konten-bertahap > :nth-child(4) { animation-delay: 0.18s; }
+.konten-bertahap > :nth-child(5) { animation-delay: 0.24s; }
+.konten-bertahap > :nth-child(n + 6) { animation-delay: 0.3s; }
 
 /* ---------- 4. Tombol Bandingkan naik dari bawah ---------- */
 
@@ -1024,8 +1026,7 @@ a[class*="tombol"]:active,
 @media (prefers-reduced-motion: reduce) {
   .konten,
   .kc-kartu,
-  .kartu,
-  .form-kartu,
+  .konten-bertahap > *,
   .tombol-bandingkan,
   .popup-kartu,
   .bk-popup,
@@ -1133,3 +1134,70 @@ a[class*="tombol"]:active,
 .popup-teks{font-size:14px;color:#4a5568;line-height:1.5;margin-bottom:20px}
 .popup-tombol{width:100%;background:#ffc93c;border:none;border-radius:12px;padding:13px;font-family:inherit;font-size:15px;font-weight:600;color:#0f1f3d;cursor:pointer}
 @keyframes popupMuncul{from{opacity:0}to{opacity:1}}
+
+/* ===========================================
+   DROPDOWN URUTAN (halaman Hasil) + CHIP KAMPUS
+   =========================================== */
+
+/* Daftar pilihan urutan dibuat membulat seperti komponen lain.
+   Jalan di Chrome/Edge terbaru; browser lain tetap pakai tampilan bawaan. */
+@supports (appearance: base-select) {
+  .baris-info select,
+  .baris-info select::picker(select) {
+    appearance: base-select;
+  }
+
+  .baris-info select::picker(select) {
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+    padding: 6px;
+    margin-top: 6px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(15, 31, 61, 0.18);
+  }
+
+  .baris-info select option {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .baris-info select option:hover {
+    background: #eef2fb;
+  }
+
+  .baris-info select option:checked {
+    background: #DCE8FA;
+    font-weight: 600;
+  }
+
+  .baris-info select option::checkmark {
+    display: none;
+  }
+
+  .baris-info select::picker-icon {
+    transition: rotate 0.18s ease;
+  }
+
+  .baris-info select:open::picker-icon {
+    rotate: 180deg;
+  }
+}
+
+/* Chip kampus di "Belum ada kos yang cocok": terasa ditekan seperti chip fasilitas */
+.konten-hasil .kc-saran a {
+  transition: scale 0.12s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.konten-hasil .kc-saran a:active {
+  scale: 0.96;
+  background-color: #c5d8f5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .konten-hasil .kc-saran a {
+    transition: none !important;
+  }
+}
